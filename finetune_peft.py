@@ -22,6 +22,7 @@ from peft import (
     PromptEncoderConfig,
     PromptTuningConfig,
     TaskType,
+    get_peft_model
 )
 import llamahf
 from alpaca import SupervisedDataset, DataCollatorForSupervisedDataset, smart_tokenizer_and_embedding_resize
@@ -134,8 +135,8 @@ def main():
 
     print("Setup PEFT")
     peft_config = get_peft_config(peft_args=peft_args)
-    #model = get_peft_model(model, peft_config)
-    model = PeftModel.from_pretrained(model, 'lora_7b')
+    model = get_peft_model(model, peft_config)
+    #model = PeftModel.from_pretrained(model, 'lora_7b')
 
     print("Train")
     trainer = Trainer(

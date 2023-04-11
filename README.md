@@ -8,3 +8,12 @@ This is a combination of the following three repos:
 
 It finetunes LLaMa using the Alpaca dataset with Peft.
 
+You need to install the packages required by the above libraries.
+
+Steps:
+
+1. Put `alpaca_data.json` to this directory.
+2. Run `python3 alpaca.py`; this will create the trainingset and save to
+   pickle.
+3. Run `. train.sh`
+4. Run `chat_alpaca.py` vs `chat_no_alpaca.py`
